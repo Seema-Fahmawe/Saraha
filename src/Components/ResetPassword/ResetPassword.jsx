@@ -19,6 +19,7 @@ const ResetPassword = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         const result = await axios.patch('https://lazy-blue-sockeye-gear.cyclic.app/api/v1/auth/sendCode', { ...inputField, email })
+        console.log(result.data);
         if (result.data.message === 'success') {
             toast.success('Changed Password Successfully!');
             navigate('/login');
@@ -27,7 +28,6 @@ const ResetPassword = () => {
         }
     }
 
-    console.log(inputField);
     return (
         <div className="container text-center my-5">
             <div className="user my-3">

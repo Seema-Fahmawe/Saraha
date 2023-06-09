@@ -20,7 +20,6 @@ const UserProfile = ({ users }) => {
         e.preventDefault();
         const apiUrl = `https://lazy-blue-sockeye-gear.cyclic.app/api/v1/message/${id}`;
         const result = await axios.post(apiUrl, { message: inputField });
-        console.log(result.data);
         const errorList = [];
         if (result.data.message === 'success') {
             setErrors([]);
@@ -32,8 +31,6 @@ const UserProfile = ({ users }) => {
             })
         }
     }
-
-    console.log(errors);
 
     const shareProfile = (e, url) => {
         e.preventDefault();
@@ -50,7 +47,7 @@ const UserProfile = ({ users }) => {
                 </a>
                 <h3 className="py-2 text-capitalize">{user.userName}</h3>
                 {errors.map((error) => {
-                    return <div className='alert alert-danger'>{error}</div>
+                    return <div className='alert alert-danger m-auto py-2 mb-4'>{error}</div>
                 })}
 
                 <div className="container w-50 m-auto">

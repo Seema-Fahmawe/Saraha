@@ -1,27 +1,50 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const ForgetPassword = () => {
+const ForgetPassword = ({ users }) => {
 
-    const [email, setEmail] = useState(null);
+    const [email, setEmail] = useState('');
     const navigate = useNavigate();
+
+    const [cEmail, setConfirmEmail] = useState(false);
+
     const onChange = (e) => {
         const { value } = e.target;
         setEmail(value);
     }
-
+    
     const onSubmit = async (e) => {
         e.preventDefault();
-        const result = await axios.patch('https://lazy-blue-sockeye-gear.cyclic.app/api/v1/auth/forgetPassword', { email });
-        if (!email || email.length < 8) {
-            toast.warning('Please enter your email');
-            return;
+        
+        {
+            users.map((user) => {
+                if (user.email != `${email}`) {
+                    setConfirmEmail(false);
+                    return ;
+                } else {
+                    setConfirmEmail(true);
+                    console.log('welcome');
+                    return ;
+                }
+            })
         }
-        toast.success('Please check your email');
-        navigate(`/resetPassword/${email}`);
+
+        const result = await axios.patch('https://lazy-blue-sockeye-gear.cyclic.app/api/v1/auth/forgetPassword', { email });
+        if (email.length < 8) {
+            toast.warning('Please enter valid email');
+        }
+        else{
+            if (!cEmail) {
+                toast.warning('Please enter valid email');
+            } else {
+                toast.success('Please check your email');
+                navigate(`/resetPassword/${email}`);
+            }
+        }
     }
+
 
     return (
         <div className="container text-center my-5">

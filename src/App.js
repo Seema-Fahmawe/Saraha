@@ -27,14 +27,11 @@ function App() {
     const result = await axios.get('https://lazy-blue-sockeye-gear.cyclic.app/api/v1/auth/getAllUsers');
     setUsers(result.data);
     setLoading(false);
-
   }
 
   useEffect(() => {
     getUsers();
   }, []);
-
-
 
   return (
     <>
@@ -63,7 +60,7 @@ function App() {
                 <Route path='/register' element={<Register />}></Route>
                 <Route path='/login' element={<Login logUser={setUser} />}></Route>
 
-                <Route path='/forgetPassword' element={<ForgetPassword />}></Route>
+                <Route path='/forgetPassword' element={<ForgetPassword  users={users}/>}></Route>
                 <Route path='/resetPassword/:email' element={<ResetPassword />}></Route>
                 <Route path='' element={<Home />}></Route>
               </>

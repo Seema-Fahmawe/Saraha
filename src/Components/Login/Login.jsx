@@ -97,8 +97,8 @@ const Login = ({ logUser }) => {
                     {statusError ? <div className='text text-danger fw-bold text-start mb-2'>** {statusError}</div> : <></>}
                     {backError ? <div className='text text-danger fw-bold text-start mb-2'>** {backError}</div> : <></>}
 
-                    <CustomeInput error={errors.email} text="Enter your email" type="text" name="email" onChange={onChange} />
-                    <CustomeInput error={errors.email} text="Enter your password" type="text" name="password" onChange={onChange} />
+                    <CustomeInput error={errors.email} text="Enter your email" type="email" name="email" onChange={onChange} />
+                    <CustomeInput error={errors.email} text="Enter your password" type="password" name="password" onChange={onChange} />
                     <button className="btn btn-default-outline my-3 w-100 rounded">Login</button>
                     <p><Link className="text-muted forgot btn" to='/forgetPassword'>I Forgot My Password</Link></p>
                     <Link className="btn btn-default-outline" to='/register'>Register</Link>

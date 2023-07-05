@@ -73,9 +73,8 @@ const ForgetPassword = ({ users }) => {
                     {errors.map((err, index) => {
                         return <div className='alert alert-danger' key={index}>{err}</div>
                     })}
-                    <input className="form-control" placeholder="Enter your email" type="text" name="email" onChange={onChange} />
+                    <input className="form-control" placeholder="Enter your email" type="email" name="email" onChange={onChange} />
                     <button className="btn btn-default-outline my-4 w-100 rounded">Send Code</button>
-
                 </form>
             </div>
         </div>

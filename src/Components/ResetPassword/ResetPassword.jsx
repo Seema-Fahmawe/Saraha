@@ -63,9 +63,8 @@ const ResetPassword = () => {
                         return <div className='alert alert-danger py-1' key={index}>{err}</div>
                     })}
                     <input className="form-control" placeholder=" Enter the Code" type="text" name="code" onChange={onChange} />
-                    <input className="form-control my-4 " placeholder=" Enter the new Password" type="text" name="newPassword" onChange={onChange} />
+                    <input className="form-control my-4 " placeholder=" Enter the new Password" type="password" name="newPassword" onChange={onChange} />
                     <button className="btn btn-default-outline my-4 w-100 rounded">Reset Password</button>
-
                 </form>
             </div>
         </div>

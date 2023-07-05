@@ -97,13 +97,13 @@ const Register = ({ logUser }) => {
         <form method="POST" action="/handleLogin" onSubmit={onSubmit}>
 
           {backError.map((error, index) => {
-            return <div className='alert alert-danger py-1' >{error.message}</div>
+            return <div className='alert alert-danger py-1' key={index}>{error.message}</div>
           })}
 
           <CustomeInput error={errors.name} text="Enter your name" type="text" name="name" onChange={onChange} />
-          <CustomeInput error={errors.email} text="Enter your email" type="text" name="email" onChange={onChange} sError={statusError} />
-          <CustomeInput error={errors.password} text="Enter your password" type="text" name="password" onChange={onChange} />
-          <CustomeInput error={errors.cPassword} text="Confirm your password" type="text" name="cPassword" onChange={onChange} />
+          <CustomeInput error={errors.email} text="Enter your email" type="email" name="email" onChange={onChange} sError={statusError} />
+          <CustomeInput error={errors.password} text="Enter your password" type="password" name="password" onChange={onChange} />
+          <CustomeInput error={errors.cPassword} text="Confirm your password" type="password" name="cPassword" onChange={onChange} />
 
           <button className="btn btn-default-outline my-4 w-100 rounded">Register</button>
         </form>
